@@ -4,6 +4,17 @@
 
 // Задача 2 - Максимум из трёх чисел
 int max_of_three(int a, int b, int c) {
+    int max = a;
+    if (b > max) {
+        max = b;
+    }
+    if (c > max) {
+        max = c;
+    }
+    return max;
+}
+
+int max_of_three(int a, int b, int c) {
     if (a >= b && a >= c) {
         return a;
     } else if (b >= a && b >= c) {
