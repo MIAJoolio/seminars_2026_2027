@@ -1,6 +1,6 @@
 
 # Задание 
-
+Очень прошу пройти
 ссылка на тренажер по гит https://learngitbranching.js.org/?locale=ru_RU 
 
 ## Задание для видео
