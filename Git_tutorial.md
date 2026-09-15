@@ -1,7 +1,9 @@
 
 # Задание 
 
+ссылка на тренажер по гит https://learngitbranching.js.org/?locale=ru_RU 
 
+ссылка на официальный cheatlist - https://git-scm.com/cheat-sheet
 
 ## Задание для видео
 1. создать репозиторий
