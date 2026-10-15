@@ -95,33 +95,50 @@ static void removeAndShow(Vector *vector, size_t index) {
 }
 
 int main(void) {
-    setbuf(stdout, NULL);
 
-    puts("=== vectorCreate ===");
-    Vector *bad = vectorCreate(0);
-    printf("  vectorCreate(0) -> %s\n", bad ? "not NULL" : "NULL");
+    // TODO создать список, но с фиксированного размера
+    int arr... = ...;
+    printf("arr[0] = %d\n", ...);
+    printf("arr[1] = %d\n", ...);
+    printf("&arr[0] = %p, &arr[1] = %p  (diff = %td bytes)\n",
+           (void *)&arr[0], (void *)&arr[1],
+           (char *)&arr[1] - (char *)&arr[0]);
+    
 
-    Vector *v = vectorCreate(sizeof(int));
+    char ... = "hi";
+    printf("sizeof=%zu strlen=%zu\n", sizeof c, strlen(c));
+    for (int i = 0; i < 5; i++){
+        printf("\nc[%d]=%d %c\n", ..., ..., ...);
+    }
+
+    printf("\n=== createVector ===\n");
+    // TODO вектор размера 0
+    printf("  vectorCreate(0) -> %s\n", zeroElVector ? "not NULL" : "NULL");
+
+    // TODO вектор с типом int
     printf("  vectorCreate(sizeof(int)) -> %s\n", v ? "ok" : "NULL");
     printInts(v);
+    // TODO обратиться к созданному массиву 
+    printf("%p %d", ..., ...);
 
-    puts("\n=== vectorAppend ===");
+    printf("\n=== vectorAppend ===\n");
     for (int x = 10; x <= 50; x += 10) {
-        int rc = vectorAppend(v, &x);
-        printf("  append %d -> returned %d\n", x, rc);
+        int rc = vectorAppend(...);
+        printf("  append %d -> returned %d\n", ..., ...);
         printInts(v);
     }
+
     printf("  append NULL -> returned %d (expected -1)\n", vectorAppend(v, NULL));
     printInts(v);
 
-    puts("\n=== vectorGet ===");
-    printf("  get(0) = %d\n", *(int *)vectorGet(v, 0));
-    printf("  get(4) = %d\n", *(int *)vectorGet(v, 4));
-    printf("  get(5) = %s (out of range)\n", vectorGet(v, 5) ? "not NULL" : "NULL");
-    printf("  get on NULL vector = %s\n", vectorGet(NULL, 0) ? "not NULL" : "NULL");
+    printf("\n=== vectorGet ===\n");
+    printf("  get(0) = %d\n", ...);
+    printf("  get(4) = %d\n", ...);
+    printf("  get(5) = %s (out of range)\n", ... ? "not NULL" : "NULL");
+    printf("  get on NULL vector = %s\n", ... ? "not NULL" : "NULL");
     printInts(v);
 
-    puts("\n=== vectorSet ===");
+    printf("\n=== vectorSet ===\n");
     int value = 99;
     printf("  set(0, 99) -> returned %d\n", vectorSet(v, 0, &value));
     printInts(v);
@@ -130,30 +147,21 @@ int main(void) {
     printf("  set(1, NULL) -> returned %d (expected -1)\n", vectorSet(v, 1, NULL));
     printInts(v);
 
-    puts("\n=== vectorRemove ===");
-    removeAndShow(v, 2);               // remove from the middle
-    removeAndShow(v, 0);               // remove the first item
-    removeAndShow(v, v->size - 1);     // remove the last item
-    removeAndShow(v, 10);              // out of range
-    removeAndShow(v, 0);               // remove until empty
-    removeAndShow(v, 0);
-    removeAndShow(v, 0);               // remove from empty
+    printf("\n=== vectorRemove ===\n");
+    ...
 
-    puts("\n=== vectorFree ===");
-    vectorFree(v);
-    v = NULL;
-    puts("  freed v");
-    vectorFree(NULL);
-    puts("  vectorFree(NULL) is safe");
+    printf("\n=== vectorFree ===\n");
+    // vectorFree(v);
+    // v = NULL;
+    // vectorFree(NULL);
 
-    puts("\n=== other type: double ===");
-    Vector *d = vectorCreate(sizeof(double));
-    for (double x = 1.5; x <= 3.0; x += 0.5) {
-        vectorAppend(d, &x);
-    }
-    for (size_t i = 0; i < d->size; i++) {
-        printf("  d[%zu] = %.2f\n", i, *(double *)vectorGet(d, i));
-    }
-    printf("  size=%zu capacity=%zu\n", d->size, d->capacity);
-    vectorFree(d);
+    // Vector *d = vectorCreate(sizeof(double));
+    // for (double x = 1.5; x <= 3.0; x += 0.5) {
+    //     vectorAppend(d, &x);
+    // }
+    // for (size_t i = 0; i < d->size; i++) {
+    //     printf("  d[%zu] = %.2f\n", i, *(double *)vectorGet(d, i));
+    // }
+    // printf("  size=%zu capacity=%zu\n", d->size, d->capacity);
+    // vectorFree(d);
 }
