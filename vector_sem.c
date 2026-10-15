@@ -61,6 +61,7 @@ int vectorSet(Vector *vector, int index, void *value) {
     // TODO: скопировать elem_size байт из value в элемент index
     memcpy(vectorGet(vector, index), value, vector->elem_size);
     // memcpy(*p_старое_значение, *p_новое_значение, размер элемента)
+    // https://en.cppreference.com/c/string/byte/memcpy
     return 0;
 }
 
@@ -76,6 +77,7 @@ int vectorAppend(Vector *vector, void *el) {
         vector->data = new_data;
         vector->capacity = new_capacity;
         // realloc(*p_структуры, новый размер) 
+        // https://en.cppreference.com/c/memory/realloc
         //Q: почему результат realloc записываются в новую переменную?
     }
 
